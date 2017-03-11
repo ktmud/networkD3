@@ -21,6 +21,7 @@
 #' @param LinkGroup character string specifying the groups in the
 #' \code{Links}. Used to color the links in the network.
 #' @param units character string describing physical units (if any) for Value
+#' @param linkOpacity the opacity of the links when in default color group
 #' @param colourScale character string specifying the categorical colour
 #' scale for the nodes. See
 #' \url{https://github.com/d3/d3/blob/master/API.md#ordinal-scales}.
@@ -74,6 +75,7 @@
 
 sankeyNetwork <- function(Links, Nodes, Source, Target, Value,
     NodeID, NodeGroup = NodeID, LinkGroup = NULL, units = "",
+    linkOpacity = 0.2,
     colourScale = JS("d3.scaleOrdinal(d3.schemeCategory20);"), fontSize = 7,
     fontFamily = NULL, nodeWidth = 15, nodePadding = 10, margin = NULL,
     height = NULL, width = NULL, iterations = 32, sinksRight = TRUE)
@@ -130,6 +132,7 @@ sankeyNetwork <- function(Links, Nodes, Source, Target, Value,
 
     # create options
     options = list(NodeID = NodeID, NodeGroup = NodeGroup, LinkGroup = LinkGroup,
+        linkOpacity = linkOpacity,
         colourScale = colourScale, fontSize = fontSize, fontFamily = fontFamily,
         nodeWidth = nodeWidth, nodePadding = nodePadding, units = units,
         margin = margin, iterations = iterations, sinksRight = sinksRight)

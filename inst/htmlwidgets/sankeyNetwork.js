@@ -24,7 +24,7 @@ HTMLWidgets.widget({
 
         this.renderValue(el, instance.x, instance);
         */
-        
+
         // with flexdashboard and slides
         //   sankey might be hidden so height and width 0
         //   in this instance re-render on resize
@@ -86,9 +86,9 @@ HTMLWidgets.widget({
 
         var opacity_link = function opacity_link(d){
           if (d.group){
-            return 0.7;
+            return options.linkOpacity + 0.5;
           } else {
-            return 0.2;
+            return options.linkOpacity;
           }
         }
 
@@ -181,7 +181,7 @@ HTMLWidgets.widget({
             .append("title")
             .append("foreignObject")
             .append("xhtml:body")
-            .html(function(d) { return "<pre>" + d.name + "<br>" + format(d.value) + 
+            .html(function(d) { return "<pre>" + d.name + "<br>" + format(d.value) +
                 " " + options.units + "</pre>"; });
 
         node.append("text")
